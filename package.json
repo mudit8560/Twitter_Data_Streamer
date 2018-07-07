@@ -1,0 +1,27 @@
+{
+  "name": "twitter_streamer",
+  "version": "1.0.0",
+  "description": "Twitter Search/Streaming API to fetch are store the target tweets with metadata",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mudit8560/Twitter_Data_Streamer.git"
+  },
+  "keywords": [
+    "Twitter",
+    "API",
+    "Search",
+    "Stream",
+    "Filter"
+  ],
+  "author": "Mudit Garg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mudit8560/Twitter_Data_Streamer/issues"
+  },
+  "homepage": "https://github.com/mudit8560/Twitter_Data_Streamer#readme"
+  
+}
