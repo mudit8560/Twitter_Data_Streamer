@@ -11,7 +11,7 @@ var tweetSchema = mongoose.Schema({
 	retweets : Number,
 	favorite : Number,
 	language : String,
-	location : String,
+	location : [Number],
 	userMention :[String],
 	HashTags : [String],
 	URL : [String]
@@ -23,4 +23,11 @@ var tweet = module.exports = mongoose.model('tweet',tweetSchema);
 module.exports.createTweet = function(newTweet,callback){
 	//console.log(newTweet);
 	newTweet.save(callback);
+}
+
+//----------------------------Filter API Function-----------------------
+
+module.exports.SearchFilter = function(query,callback){
+	//console.log(newTweet);
+	tweet.find(query,callback);
 }
