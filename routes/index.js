@@ -16,7 +16,13 @@ router.get('/streamOn',function(req,res){
 	stream.on('tweet',tweetEvent);
 
 	function tweetEvent(tweet){
-		console.log(tweet);
+		//console.log(tweet);
+		//console.log(tweet.entities.hashtags);
+		var hashtags1=[];
+		for (var i = 0; i < tweet.entities.hashtags.length; i++) {
+			hashtags1.push(tweet.entities.hashtags[i].text);
+		}
+		//console.log(hashtags1[0]);
 		if(tweet.geo != null){
 			var newTweet = new Tweet ({
 				id : tweet.id,
@@ -32,7 +38,7 @@ router.get('/streamOn',function(req,res){
 				location : tweet.geo.coordinates,
 				userFollower : tweet.user.followers_count,
 				userMention :tweet.entities.user_mentions.screen_name,
-				HashTags : tweet.entities.hahtags,
+				HashTags : hashtags1,
 				URLs : tweet.entities.urls
 			});
 		}
@@ -51,7 +57,7 @@ router.get('/streamOn',function(req,res){
 				location : tweet.geo,
 				userFollower : tweet.user.followers_count,
 				userMention :tweet.entities.user_mentions.screen_name,
-				HashTags : tweet.entities.hahtags,
+				HashTags : hashtags1,
 				URLs : tweet.entities.urls
 			});
 		}
@@ -129,6 +135,7 @@ router.get('/Trending/:word',function(req,res){
 
 });
 
+/////.........................another trending function............./////
 
 //-----------------------------Filter Tweet Query----------------//
 router.post('/filter', function(req, res, next) {
